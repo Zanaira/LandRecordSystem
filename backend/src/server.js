@@ -22,7 +22,9 @@ app.listen(PORT,()=>{
 });
 
 const corsOptions = {
-  origin: "https://land-record-system.vercel.app",
+  origin: "http://localhost:3000",
+  "https://land-record-system.vercel.app",
+  "https://land-record-system-23axwu0ok-zanairas-projects.vercel.app"
   credentials: true,
   methods: "GET,POST,PUT,DELETE,HEAD,PATCH",
 };
