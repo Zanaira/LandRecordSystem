@@ -21,14 +21,22 @@ app.listen(PORT,()=>{
     console.log("Server has started on PORT:",PORT);
 });
 
-const corsOptions = {
-  origin: "http://localhost:3000",
+const allowedOrigins = [
+  "http://localhost:3000",
   "https://land-record-system.vercel.app",
   "https://land-record-system-23axwu0ok-zanairas-projects.vercel.app"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
-  methods: "GET,POST,PUT,DELETE,HEAD,PATCH",
-};
-app.use(cors(corsOptions));
+}));
 app.use(cookieParser());
 
 app.use(express.json());  // For Read able data from frontend   (framWork)
