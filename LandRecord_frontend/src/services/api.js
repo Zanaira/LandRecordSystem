@@ -4,7 +4,7 @@ import axios from 'axios';
 import { getToken } from '../utils/auth';
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5001/api', // your backend URL
+  baseURL: "https://landrecordsystem-backend.onrender.com", // your backend URL
 });
 
 // Attach token automatically
