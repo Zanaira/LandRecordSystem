@@ -78,7 +78,7 @@ export default function Navbar() {
   const handleLogOut = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await API.post(`/user/logout`,
+       await API.post(`/user/logout`,
       {},
       {
         headers: {
