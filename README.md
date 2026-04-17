@@ -127,9 +127,13 @@ npm install
 Create `.env` file:
 
 ```env
-MONGO_URL=mongodb+srv://Zanaira078:Zani1234@url.lzfankl.mongodb.net/landRecord_db?retryWrites=true&w=majority&appName=url
-JWT_SECRET=myverysecretkey123
+MONGO_URL=mongodb-url
+JWT_SECRET=secret-key
 PORT=5001
+JWT_EXPIRES_IN=7d
+BCRYPT_SALT_ROUNDS=12
+NODE_ENV=node-env
+CLIENT_URL=client-url
 ```
 
 Run backend:
