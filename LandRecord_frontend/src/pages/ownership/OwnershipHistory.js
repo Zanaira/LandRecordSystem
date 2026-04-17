@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import API from "../../services/api";
 import showToast from "../../components/ShowToast";
@@ -20,6 +20,7 @@ export default function LandRecordDetails() {
   const [selectedRecord, setSelectedRecord] = useState(null);
   const [editValues, setEditValues] = useState({});
   const [isEditing, setIsEditing] = useState(false);
+  const BASE_URL = process.env.REACT_APP_API_URL;
 
   // Fetch ownership history
   const fetchRecord = () => {
@@ -43,7 +44,7 @@ export default function LandRecordDetails() {
 
   useEffect(() => {
     fetchRecord();
-  }, [id]);
+  }, []);
 
   if (loading) return <Typography>Loading...</Typography>;
 
@@ -91,8 +92,8 @@ export default function LandRecordDetails() {
 
   // document rendering logic
  const renderDocument = (doc) => {
-  const previewUrl = `${API.defaults.baseURL}/document/view/${doc._id}`;
-  const downloadUrl = `${API.defaults.baseURL}/document/download/${doc._id}`;
+  const previewUrl = `${BASE_URL}/document/view/${doc._id}`;
+  const downloadUrl = `${BASE_URL}/document/download/${doc._id}`;
 
   const isPDF = /\.pdf$/i.test(doc.file_path);
   const isImage = /\.(jpg|jpeg|png|gif)$/i.test(doc.file_path);
