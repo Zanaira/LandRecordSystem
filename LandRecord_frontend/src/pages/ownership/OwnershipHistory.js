@@ -23,7 +23,8 @@ export default function LandRecordDetails() {
   const BASE_URL = process.env.REACT_APP_API_URL;
 
   // Fetch ownership history
-  const fetchRecord = () => {
+  
+  const fetchRecord = useCallback(() => {
     API
       .get(`/owner/land/${id}`)
       .then((res) => {
@@ -40,11 +41,11 @@ export default function LandRecordDetails() {
         setLoading(false);
         console.error("Error fetching record:", err);
       });
-  };
+  }, [id]);
 
-  useEffect(() => {
-    fetchRecord();
-  }, []);
+ useEffect(() => {
+  fetchRecord();
+}, [fetchRecord]);
 
   if (loading) return <Typography>Loading...</Typography>;
 
