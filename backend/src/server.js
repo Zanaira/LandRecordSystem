@@ -22,7 +22,7 @@ app.listen(PORT,()=>{
 });
 
 const corsOptions = {
-  origin: process.env.CLIENT_URL,
+  origin: "https://land-record-system.vercel.app",
   credentials: true,
   methods: "GET,POST,PUT,DELETE,HEAD,PATCH",
 };
