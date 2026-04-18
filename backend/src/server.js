@@ -21,6 +21,7 @@ app.listen(PORT,()=>{
     console.log("Server has started on PORT:",PORT);
 });
 
+// Replace your existing CORS configuration with this
 const allowedOrigins = [
   "http://localhost:3000",
   "https://land-record-system.vercel.app",
@@ -29,13 +30,19 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
+      console.log('Blocked origin:', origin);
       callback(new Error("Not allowed by CORS"));
     }
   },
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(cookieParser());
 
