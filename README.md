@@ -6,8 +6,8 @@ A full-stack web application to manage land records, ownership transfers, disput
 
 ## 🚀 Live Demo
 
-🔗 Frontend: 
-🔗 Backend API: 
+🔗 Frontend: https://land-record-system.vercel.app/
+
 
 ---
 
