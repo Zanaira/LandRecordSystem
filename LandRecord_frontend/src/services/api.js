@@ -6,7 +6,7 @@ import { getToken } from '../utils/auth';
 console.log('API Base URL:', process.env.REACT_APP_API_URL);
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5001/api',
+  baseURL: process.env.REACT_APP_API_URL ,
   withCredentials: true, // Important for cookies if you use them
   headers: {
     'Content-Type': 'application/json'
